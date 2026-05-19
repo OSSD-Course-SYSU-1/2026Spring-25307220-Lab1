@@ -1,0 +1,184 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "somebody_technology",
+      "value": "somebody technology"
+    },
+    {
+      "name": "deep",
+      "value": "deep"
+    },
+    {
+      "name": "closed_day",
+      "value": "已收盘 10-19 15:03:03"
+    },
+    {
+      "name": "now_begins",
+      "value": "now begins"
+    },
+    {
+      "name": "yesterday_close",
+      "value": "yesterday close"
+    },
+    {
+      "name": "turnover_rate",
+      "value": "turnover rate"
+    },
+    {
+      "name": "tallest",
+      "value": "tallest"
+    },
+    {
+      "name": "lowest",
+      "value": "lowest"
+    },
+    {
+      "name": "PEG",
+      "value": "PEG"
+    },
+    {
+      "name": "volume_transaction",
+      "value": "volume transaction"
+    },
+    {
+      "name": "turnover",
+      "value": "turnover"
+    },
+    {
+      "name": "total_value",
+      "value": "total value"
+    },
+    {
+      "name": "text_hands",
+      "value": "4570手"
+    },
+    {
+      "name": "text_billion",
+      "value": "26.10亿"
+    },
+    {
+      "name": "turnover_value",
+      "value": "910.5万"
+    },
+    {
+      "name": "securities_margin_trading",
+      "value": "securities"
+    },
+    {
+      "name": "certain_estate_company",
+      "value": "certain estate company"
+    },
+    {
+      "name": "certain_pharmaceutical_company",
+      "value": "certain pharmaceutical company"
+    },
+    {
+      "name": "growth_enterprise_market",
+      "value": "growth"
+    },
+    {
+      "name": "sell",
+      "value": "sell"
+    },
+    {
+      "name": "buy",
+      "value": "buy"
+    },
+    {
+      "name": "discussion",
+      "value": "discussion"
+    },
+    {
+      "name": "must_read",
+      "value": "must_read"
+    },
+    {
+      "name": "capital",
+      "value": "capital"
+    },
+    {
+      "name": "datum",
+      "value": "datum"
+    },
+    {
+      "name": "announcements",
+      "value": "announcements"
+    },
+    {
+      "name": "finance",
+      "value": "finance"
+    },
+    {
+      "name": "research_report",
+      "value": "research_report"
+    },
+    {
+      "name": "information",
+      "value": "information"
+    },
+    {
+      "name": "related_fund",
+      "value": "related_fund"
+    },
+    {
+      "name": "time_share",
+      "value": "time_share"
+    },
+    {
+      "name": "five_days",
+      "value": "five_days"
+    },
+    {
+      "name": "daily_k",
+      "value": "daily_k"
+    },
+    {
+      "name": "week_k",
+      "value": "week_k"
+    },
+    {
+      "name": "month_k",
+      "value": "month_k"
+    },
+    {
+      "name": "season_k",
+      "value": "season_k"
+    },
+    {
+      "name": "half_year_k",
+      "value": "half_year_k"
+    },
+    {
+      "name": "year_k",
+      "value": "year_k"
+    },
+    {
+      "name": "self_selected_settings",
+      "value": "self_selected_settings"
+    },
+    {
+      "name": "stock_pk",
+      "value": "stock_pk"
+    },
+    {
+      "name": "more",
+      "value": "more"
+    },
+    {
+      "name": "go_trade",
+      "value": "go_trade"
+    },
+    {
+      "name": "market_conditions",
+      "value": "market_conditions"
+    },
+    {
+      "name": "transaction_details",
+      "value": "transaction_details"
+    }
+  ]
+}

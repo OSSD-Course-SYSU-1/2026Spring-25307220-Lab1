@@ -1,0 +1,14 @@
+{
+  "routerMap": [
+    {
+      "name": "StockDetail",
+      "pageSourceFile": "src/main/ets/views/StockDetail.ets",
+      "buildFunction": "StockDetailBuilder"
+    },
+    {
+      "name": "ABAWindow",
+      "pageSourceFile": "src/main/ets/views/ABAWindow.ets",
+      "buildFunction": "ABAWindowBuilder"
+    }
+  ]
+}

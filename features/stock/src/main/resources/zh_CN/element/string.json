@@ -1,0 +1,184 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "somebody_technology",
+      "value": "某某科技"
+    },
+    {
+      "name": "deep",
+      "value": "深"
+    },
+    {
+      "name": "closed_day",
+      "value": "已收盘 10-19 15:03:03"
+    },
+    {
+      "name": "now_begins",
+      "value": "今开"
+    },
+    {
+      "name": "yesterday_close",
+      "value": "昨收"
+    },
+    {
+      "name": "turnover_rate",
+      "value": "换手率"
+    },
+    {
+      "name": "tallest",
+      "value": "最高"
+    },
+    {
+      "name": "lowest",
+      "value": "最低"
+    },
+    {
+      "name": "PEG",
+      "value": "市盈率"
+    },
+    {
+      "name": "volume_transaction",
+      "value": "成交额"
+    },
+    {
+      "name": "turnover",
+      "value": "成交量"
+    },
+    {
+      "name": "total_value",
+      "value": "总市值"
+    },
+    {
+      "name": "text_hands",
+      "value": "4570手"
+    },
+    {
+      "name": "text_billion",
+      "value": "26.10亿"
+    },
+    {
+      "name": "turnover_value",
+      "value": "910.5万"
+    },
+    {
+      "name": "securities_margin_trading",
+      "value": "融"
+    },
+    {
+      "name": "certain_estate_company",
+      "value": "某某地产"
+    },
+    {
+      "name": "certain_pharmaceutical_company",
+      "value": "某某药业"
+    },
+    {
+      "name": "growth_enterprise_market",
+      "value": "创"
+    },
+    {
+      "name": "sell",
+      "value": "卖"
+    },
+    {
+      "name": "buy",
+      "value": "买"
+    },
+    {
+      "name": "discussion",
+      "value": "讨论"
+    },
+    {
+      "name": "must_read",
+      "value": "必读"
+    },
+    {
+      "name": "capital",
+      "value": "资金"
+    },
+    {
+      "name": "datum",
+      "value": "资料"
+    },
+    {
+      "name": "announcements",
+      "value": "公告"
+    },
+    {
+      "name": "finance",
+      "value": "财务"
+    },
+    {
+      "name": "research_report",
+      "value": "研报"
+    },
+    {
+      "name": "information",
+      "value": "最新资讯"
+    },
+    {
+      "name": "related_fund",
+      "value": "关联基金"
+    },
+    {
+      "name": "time_share",
+      "value": "分时"
+    },
+    {
+      "name": "five_days",
+      "value": "五日"
+    },
+    {
+      "name": "daily_k",
+      "value": "日K"
+    },
+    {
+      "name": "week_k",
+      "value": "周K"
+    },
+    {
+      "name": "month_k",
+      "value": "月K"
+    },
+    {
+      "name": "season_k",
+      "value": "季K"
+    },
+    {
+      "name": "half_year_k",
+      "value": "半年K"
+    },
+    {
+      "name": "year_k",
+      "value": "年K"
+    },
+    {
+      "name": "self_selected_settings",
+      "value": "自选设置"
+    },
+    {
+      "name": "stock_pk",
+      "value": "股票PK"
+    },
+    {
+      "name": "more",
+      "value": "更多"
+    },
+    {
+      "name": "go_trade",
+      "value": "去交易"
+    },
+    {
+      "name": "market_conditions",
+      "value": "千档行情"
+    },
+    {
+      "name": "transaction_details",
+      "value": "成交明细"
+    }
+  ]
+}

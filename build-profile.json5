@@ -1,0 +1,70 @@
+{
+  "app": {
+    "signingConfigs": [],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.2(22)",
+        "compatibleSdkVersion": "6.0.2(22)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "default",
+      "srcPath": "./products/default",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "srcPath": "./commons/base",
+    },
+    {
+      "name": "home",
+      "srcPath": "./features/home",
+    },
+    {
+      "name": "portrait",
+      "srcPath": "./features/portrait"
+    },
+    {
+      "name": "landscape",
+      "srcPath": "./features/landscape"
+    },
+    {
+      "name": "photos",
+      "srcPath": "./features/photos",
+    },
+    {
+      "name": "stock",
+      "srcPath": "./features/stock"
+    },
+    {
+      "name": "video",
+      "srcPath": "./features/video"
+    }
+  ]
+}

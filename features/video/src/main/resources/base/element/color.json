@@ -1,0 +1,16 @@
+{
+  "color": [
+    {
+      "name": "episodes_font",
+      "value": "#ED6F21"
+    },
+    {
+      "name": "episodes_background",
+      "value": "#0D000000"
+    },
+    {
+      "name": "selected_color",
+      "value": "#0A59F7"
+    }
+  ]
+}
