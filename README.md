@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-本示例以窗口旋转策略实现的高频场景为载体，通过窗口级配置实现多设备的窗口方向变化。示例中实现了开发中的五个典型场景：应用首页、横竖屏游戏、图库、个股详情页&股票K线图页以及视频详情页&全屏播放页。
+本示例以窗口旋转策略实现的高频场景为载体，通过窗口级配置实现多设备的窗口方向变化。示例中实现了开发中的五个典型场景：应用首页、横竖屏游戏、图库、个股详情页&股票K线图页以及视频详情页&全屏播放页。此外，还扩展了三个高级功能模块：**多窗口协作演示**（模拟多窗口环境下的布局适配）、**旋转事件录制回放**（实时录制旋转事件并提供统计分析面板）以及 **2048 数字拼图**（经典滑动拼图小游戏）。
 
 ## 效果预览
 以首页案例为例的效果图。
@@ -11,18 +11,43 @@
 |---------------------------------------------------------|----------------------------------------------------------|
 | <img src='screenshots/device/home_phone.gif' width=480> | <img src='screenshots/device/home_tablet.gif' width=480> |
 
+## 功能模块一览
+
+| 模块 | 入口名称 | 窗口策略 | 说明 |
+|------|---------|---------|------|
+| Home | 应用首页 | FOLLOW_DESKTOP | 首页 Tabs + 瀑布流，响应式布局自适应 |
+| PortraitModeGame | 竖屏游戏 | FIXED PORTRAIT | 锁定竖屏，触控游戏 |
+| LandscapeModeGame | 横屏游戏 | FIXED LANDSCAPE | 锁定横屏，触控游戏 |
+| Photos | 图库 | AUTO_ROTATION_UNSPECIFIED | 自动旋转，分栏布局切换 |
+| StockDetail | 股票详情页 | FOLLOW_DESKTOP | 跟随桌面，K 线自适应 |
+| VideoDetail | 视频详情页 | AUTO_ROTATION_LANDSCAPE_RESTRICTED | 动态选择，全屏/窗口策略切换 |
+| **MultiWindowDemo** 🆕 | **多窗口旋转协作** | 动态演示 | 模拟多窗口布局适配，集成事件录制 |
+| **OrientationLog** 🆕 | **旋转事件日志** | — | 实时录制 + 统计面板 + 条形图 + 时间轴 |
+| **Game2048** 🆕 | **2048 数字拼图** | — | 滑动操作 + 方向按钮，经典 2048 玩法 |
+
 ## 使用说明
 
 1. 通过Navigation组件，配置应用的路由信息。
 2. 通过点击主页List的ListItem跳转进入对应的高频场景案例中。
 3. 在高频场景案例的主页aboutToAppear()生命周期中设置窗口级的窗口旋转策略，并在退出当前页面时恢复上一页面的窗口策略。
 4. 对于不同场景及不同设备形态切换做监听，更新符合用户体验的窗口旋转策略。
+5. 新增的 **旋转事件日志** 模块可在任意页面手动或自动录制旋转事件，切换至该页面查看时序统计与分析。
+6. 新增的 **2048 数字拼图** 支持手指滑动、底部方向按钮两种操作方式，最高分通过 Preferences 持久化存储。
 
 ## 工程目录
 
 ```
 
 ├──commons                                  // 公共常量及工具
+│  └──base/src/main/ets
+│     ├──constants
+│     │  ├──BreakpointConstants.ets         // 断点常量
+│     │  └──CommonConstants.ets             // 通用常量
+│     └──utils
+│        ├──BreakpointType.ets              // 断点类型工具类
+│        ├──Logger.ets                      // 日志工具
+│        ├──OrientationLogger.ets           // 旋转事件录制器 🆕
+│        └──WindowOrientationHelper.ets     // 窗口方向辅助工具
 ├──features                                 // 程序har包
 │  ├──home/src/main/ets                     // 首页案例代码区
 │  │  ├──model 
@@ -61,17 +86,28 @@
 │  │     ├──StockDealDetails.ets            // 个股交易信息页
 │  │     ├──StockDetail.ets                 // 个股详情主页
 │  │     └──StockDetailsInfo.ets            // 个股详情信息页
-│  └──videoDetail/src/main/ets              // 视频详情页&全屏播放页
-│     ├──components 
-│     │  ├──AllComments.ets                 // 所有基础组件汇总
-│     │  ├──RelatedList.ets                 // 相关信息列表组件
-│     │  └──VideoPlayer.ets                 // 播放器组件
-│     ├──viewmodel 
-│     │  ├──RelatedVideoViewModel.ets       // 相关视频视图模型
-│     │  └──UserViewModel.ets               // 用户信息视图模型
-│     └──views 
-│        ├──VideoDetail.ets                 // 视频详情页
-│        └──VideoDetailView.ets             // 全屏播放页
+│  ├──videoDetail/src/main/ets              // 视频详情页&全屏播放页
+│  │  ├──components 
+│  │  │  ├──AllComments.ets                 // 所有基础组件汇总
+│  │  │  ├──RelatedList.ets                 // 相关信息列表组件
+│  │  │  └──VideoPlayer.ets                 // 播放器组件
+│  │  ├──viewmodel 
+│  │  │  ├──RelatedVideoViewModel.ets       // 相关视频视图模型
+│  │  │  └──UserViewModel.ets               // 用户信息视图模型
+│  │  └──views 
+│  │     ├──VideoDetail.ets                 // 视频详情页
+│  │     └──VideoDetailView.ets             // 全屏播放页
+│  ├──multiwindow/src/main/ets 🆕           // 多窗口协作演示
+│  │  └──views
+│  │     └──MultiWindowDemo.ets             // 多窗口模拟 + 旋转策略演示
+│  ├──orientationlog/src/main/ets 🆕        // 旋转事件录制回放
+│  │  ├──model
+│  │  │  └──RotationEventModel.ets          // 旋转事件数据模型
+│  │  └──views
+│  │     └──OrientationLog.ets              // 日志主页（时间轴 + 统计分析）
+│  └──game2048/src/main/ets 🆕              // 2048 数字拼图
+│     └──views
+│        └──Game2048.ets                    // 游戏主页（滑动 + 按钮操控）
 └──products                                 // 设备分类
    ├──default/src/main/ets                  // 主页代码区
    │  ├──defaultbackupability 
@@ -83,7 +119,7 @@
    │  ├──pages 
    │  │  └──Index.ets                       // 主页
    │  └──viewmodel 
-   │     └──CardListViewModel.ets           // 主页列表试图模型
+   │     └──CardListViewModel.ets           // 主页列表试图模型（含 9 个功能入口）
    └──default/src/main/resources   
       └──base/profile    
          ├──backup_config.json              // 应用数据备份配置文件
@@ -91,12 +127,57 @@
 
 ```
 
+## 新增功能详解 🆕
+
+### 1. 多窗口协作演示（MultiWindowDemo）
+
+模拟多窗口环境，展示不同窗口的布局策略与方向适配能力：
+
+- 使用 `window.Window` API 获取窗口信息
+- 集成 `OrientationLogger` 实时录制旋转事件
+- 模拟多种窗口布局策略（横竖屏、分栏、悬浮窗）
+- 展示断点变化与方向切换的关系
+
+### 2. 旋转事件录制回放（OrientationLog）
+
+提供旋转事件的实时录制、统计分析及数据持久化：
+
+- **时间轴视图** — 按时间线展示每次旋转事件（方向变化、触发原因、策略标签）
+- **统计面板** — 事件总数、录制时长、方向切换次数
+- **条形图分布** — 策略触发次数的可视化分析
+- **触发原因分布** — windowSizeChange / fullScreenToggle / manualSet 等分类统计
+- **数据持久化** — 基于 Preferences 存储，支持刷新和清空
+
+### 3. 2048 数字拼图（Game2048）
+
+经典 4×4 数字滑动拼图游戏：
+
+- **三种操作方式** — 手指滑动 / 底部方向按钮 / 键盘方向键
+- **得分系统** — 实时分数 + 最高分持久化（Preferences）
+- **胜利检测** — 合成 2048 后弹出胜利提示，可选择继续挑战
+- **游戏结束检测** — 无可用移动时弹出重试按钮
+- **动态配色** — 不同数值对应专属背景色与字号
+
 ## 具体实现
 
 1. 通过homePage及relatedPage字段，配置应用的主页及关联页。
 2. 通过fullScreenPages属性指定全屏页，配置后，对应页面展示时，将暂时退出分栏模式，切换为全屏显示。
 3. 将supportLandscapeFullScreen属性设置为true，配置后，当应用请求横屏时，将退出分栏模式，切换为全屏显示。
 4. 将enableReducedContainerSize属性设置为true，开启虚拟容器能力。开启后，页面中横向断点将使用原始尺寸的缩小比例，默认按照真实大小的一半计算。
+5. 新增的 **旋转事件录制回放** 模块通过 `OrientationLogger` 单例实现全局旋转事件采集，使用 `@State` + `ForEach` 驱动时间轴和条形图的响应式更新。
+6. 新增的 **2048 数字拼图** 通过 `@State tick` 计数器配合 `ForEach` 的 key 机制实现网格状态刷新，滑动操作通过 `PanGesture` 识别方向。
+
+## 技术栈
+
+| 技术点 | 说明 |
+|-------|------|
+| 架构 | 多 HAP + HAR 模块化架构 |
+| 路由 | Navigation + NavPathStack + HAR router_map |
+| 响应式 | BreakpointType + WidthBreakpoint / HeightBreakpoint |
+| 状态管理 | @State、@StorageLink、@Provide/@Consume |
+| 数据持久化 | Preferences（旋转日志、2048 最高分） |
+| 窗口管理 | window.Window API（setPreferredOrientation） |
+| 手势处理 | PanGesture 滑动识别 |
 
 ## 相关权限
 

@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "game2048",
+    "type": "har",
+    "routerMap": "$profile:router_map",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

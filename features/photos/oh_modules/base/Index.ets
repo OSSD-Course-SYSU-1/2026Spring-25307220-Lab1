@@ -34,3 +34,6 @@ export { DisplayUtil } from './src/main/ets/utils/DisplayUtil';
 
 export { WindowOrientationHelper } from './src/main/ets/utils/WindowOrientationHelper';
 
+export { OrientationLogger } from './src/main/ets/utils/OrientationLogger';
+export type { RotationEvent, LogStatistics } from './src/main/ets/utils/OrientationLogger';
+

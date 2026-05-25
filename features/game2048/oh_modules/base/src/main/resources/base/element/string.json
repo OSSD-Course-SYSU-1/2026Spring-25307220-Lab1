@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "feel",
+      "value": "感觉很不错啊，下一款准备入手Mate X3了，很喜欢折叠屏的分屏功能，终于可以一边聊天一边看短视频了！"
+    },
+    {
+      "name": "love",
+      "value": "好喜欢这张图，很惊艳！！！竟然是手机拍出来的，太给力了！"
+    },
+    {
+      "name": "design",
+      "value": "这个背面真的很有设计感，珠光贝母，种草了种草了"
+    },
+    {
+      "name": "July",
+      "value": "7月27日"
+    },
+    {
+      "name": "selections",
+      "value": "选集"
+    },
+    {
+      "name": "just",
+      "value": "只看TA"
+    },
+    {
+      "name": "super",
+      "value": "超清"
+    },
+    {
+      "name": "speed",
+      "value": "倍速"
+    },
+    {
+      "name": "released",
+      "value": "Matebook系列新"
+    },
+    {
+      "name": "series",
+      "value": "HUAWEI P60 系列发布"
+    },
+    {
+      "name": "comments",
+      "value": "全部评论"
+    },
+    {
+      "name": "related",
+      "value": "相关列表"
+    },
+    {
+      "name": "more",
+      "value": "更多"
+    },
+    {
+      "name": "Peripheral",
+      "value": "周边视频"
+    },
+    {
+      "name": "anthology",
+      "value": "选集"
+    },
+    {
+      "name": "introduction",
+      "value": "视频简介"
+    }
+  ]
+}

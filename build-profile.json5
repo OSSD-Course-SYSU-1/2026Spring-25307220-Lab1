@@ -65,6 +65,18 @@
     {
       "name": "video",
       "srcPath": "./features/video"
+    },
+    {
+      "name": "multiwindow",
+      "srcPath": "./features/multiwindow"
+    },
+    {
+      "name": "orientationlog",
+      "srcPath": "./features/orientationlog"
+    },
+    {
+      "name": "game2048",
+      "srcPath": "./features/game2048"
     }
   ]
 }

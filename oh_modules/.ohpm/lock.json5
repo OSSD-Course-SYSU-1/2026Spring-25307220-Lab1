@@ -31,6 +31,18 @@
       "dynamicDependencies": {},
       "maskedByOverrideDependencyMap": false
     },
+    "features/game2048": {
+      "name": "game2048",
+      "dependencies": {
+        "base": {
+          "specifier": "file:commons/base",
+          "version": "file:commons/base"
+        }
+      },
+      "devDependencies": {},
+      "dynamicDependencies": {},
+      "maskedByOverrideDependencyMap": false
+    },
     "features/home": {
       "name": "home",
       "dependencies": {
@@ -45,6 +57,30 @@
     },
     "features/landscape": {
       "name": "landscape",
+      "dependencies": {
+        "base": {
+          "specifier": "file:commons/base",
+          "version": "file:commons/base"
+        }
+      },
+      "devDependencies": {},
+      "dynamicDependencies": {},
+      "maskedByOverrideDependencyMap": false
+    },
+    "features/multiwindow": {
+      "name": "multiwindow",
+      "dependencies": {
+        "base": {
+          "specifier": "file:commons/base",
+          "version": "file:commons/base"
+        }
+      },
+      "devDependencies": {},
+      "dynamicDependencies": {},
+      "maskedByOverrideDependencyMap": false
+    },
+    "features/orientationlog": {
+      "name": "orientationlog",
       "dependencies": {
         "base": {
           "specifier": "file:commons/base",
@@ -137,6 +173,18 @@
         "video": {
           "specifier": "file:features/video",
           "version": "file:features/video"
+        },
+        "multiwindow": {
+          "specifier": "file:features/multiwindow",
+          "version": "file:features/multiwindow"
+        },
+        "orientationlog": {
+          "specifier": "file:features/orientationlog",
+          "version": "file:features/orientationlog"
+        },
+        "game2048": {
+          "specifier": "file:features/game2048",
+          "version": "file:features/game2048"
         }
       },
       "devDependencies": {},
@@ -171,8 +219,8 @@
       "dynamic": false,
       "maskedByOverrideDependencyMap": false
     },
-    "home@file:features/home": {
-      "storePath": "features/home",
+    "portrait@file:features/portrait": {
+      "storePath": "features/portrait",
       "dependencies": {
         "base": "commons/base"
       },
@@ -181,8 +229,8 @@
       "dynamic": false,
       "maskedByOverrideDependencyMap": false
     },
-    "portrait@file:features/portrait": {
-      "storePath": "features/portrait",
+    "home@file:features/home": {
+      "storePath": "features/home",
       "dependencies": {
         "base": "commons/base"
       },
@@ -201,8 +249,8 @@
       "dynamic": false,
       "maskedByOverrideDependencyMap": false
     },
-    "photos@file:features/photos": {
-      "storePath": "features/photos",
+    "multiwindow@file:features/multiwindow": {
+      "storePath": "features/multiwindow",
       "dependencies": {
         "base": "commons/base"
       },
@@ -213,6 +261,36 @@
     },
     "video@file:features/video": {
       "storePath": "features/video",
+      "dependencies": {
+        "base": "commons/base"
+      },
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
+    "orientationlog@file:features/orientationlog": {
+      "storePath": "features/orientationlog",
+      "dependencies": {
+        "base": "commons/base"
+      },
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
+    "photos@file:features/photos": {
+      "storePath": "features/photos",
+      "dependencies": {
+        "base": "commons/base"
+      },
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
+    "game2048@file:features/game2048": {
+      "storePath": "features/game2048",
       "dependencies": {
         "base": "commons/base"
       },

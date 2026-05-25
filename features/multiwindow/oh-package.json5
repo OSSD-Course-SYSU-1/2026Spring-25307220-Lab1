@@ -1,0 +1,11 @@
+{
+  "name": "multiwindow",
+  "version": "1.0.0",
+  "description": "Multi-window rotation demo",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "base": "file:../../commons/base"
+  }
+}
