@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "OrientationLog",
-      "pageSourceFile": "src/main/ets/views/OrientationLog.ets",
-      "buildFunction": "OrientationLogBuilder"
-    }
-  ]
-}

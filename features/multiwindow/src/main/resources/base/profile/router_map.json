@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "MultiWindowDemo",
-      "pageSourceFile": "src/main/ets/views/MultiWindowDemo.ets",
-      "buildFunction": "MultiWindowDemoBuilder"
-    }
-  ]
-}

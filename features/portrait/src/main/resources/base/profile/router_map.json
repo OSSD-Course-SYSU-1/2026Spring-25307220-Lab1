@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "PortraitModeGame",
-      "pageSourceFile": "src/main/ets/views/PortraitModeGame.ets",
-      "buildFunction": "PortraitModeGameBuilder"
-    }
-  ]
-}

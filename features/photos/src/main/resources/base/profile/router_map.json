@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "Photos",
-      "pageSourceFile": "src/main/ets/views/Photos.ets",
-      "buildFunction": "PhotosBuilder"
-    }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "Game2048",
-      "pageSourceFile": "src/main/ets/views/Game2048.ets",
-      "buildFunction": "Game2048Builder"
-    }
-  ]
-}

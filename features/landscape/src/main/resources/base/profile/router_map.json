@@ -1,9 +1,0 @@
-{
-  "routerMap": [
-    {
-      "name": "LandscapeModeGame",
-      "pageSourceFile": "src/main/ets/views/LandscapeModeGame.ets",
-      "buildFunction": "LandscapeModeGameBuilder"
-    }
-  ]
-}
