@@ -1,0 +1,9 @@
+{
+  "routerMap": [
+    {
+      "name": "FreeFlow",
+      "pageSourceFile": "src/main/ets/views/FreeFlow.ets",
+      "buildFunction": "FreeFlowBuilder"
+    }
+  ]
+}

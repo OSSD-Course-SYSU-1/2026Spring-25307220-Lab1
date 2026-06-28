@@ -1,0 +1,25 @@
+{
+  "string": [
+    { "name": "free_flow", "value": "自由流转" },
+    { "name": "flow_title", "value": "自由流转" },
+    { "name": "flow_desc", "value": "演示鸿蒙设备间的无缝任务接续能力" },
+    { "name": "current_state", "value": "当前状态" },
+    { "name": "state_text", "value": "文本内容" },
+    { "name": "state_count", "value": "计数器" },
+    { "name": "state_position", "value": "滚动位置" },
+    { "name": "continue_btn", "value": "流转到附近设备" },
+    { "name": "receive_btn", "value": "接收流转状态" },
+    { "name": "contuning", "value": "正在准备流转..." },
+    { "name": "contine_success", "value": "流转成功！请在另一台设备上继续操作" },
+    { "name": "receive_success", "value": "已接收来自其他设备的流转状态" },
+    { "name": "reset_state", "value": "重置状态" },
+    { "name": "nearby_devices", "value": "附近可用设备" },
+    { "name": "no_devices_flow", "value": "未发现附近设备" },
+    { "name": "select_device", "value": "选择目标设备" },
+    { "name": "increment", "value": "计数+1" },
+    { "name": "decrement", "value": "计数-1" },
+    { "name": "edit_text", "value": "编辑文本" },
+    { "name": "transfer_animating", "value": "流转中..." },
+    { "name": "flow_from_device", "value": "来源设备" }
+  ]
+}

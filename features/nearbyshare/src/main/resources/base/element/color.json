@@ -1,0 +1,20 @@
+{
+  "color": [
+    { "name": "card_bg", "value": "#FFFFFF" },
+    { "name": "scan_active", "value": "#1976D2" },
+    { "name": "scan_inactive", "value": "#BDBDBD" },
+    { "name": "device_bg", "value": "#F5F7FA" },
+    { "name": "device_border", "value": "#E0E0E0" },
+    { "name": "send_bg", "value": "#E3F2FD" },
+    { "name": "progress_bg", "value": "#E8EAF6" },
+    { "name": "success_bg", "value": "#E8F5E9" },
+    { "name": "history_bg", "value": "#FFF8E1" },
+    { "name": "phone_icon", "value": "#1976D2" },
+    { "name": "tablet_icon", "value": "#388E3C" },
+    { "name": "foldable_icon", "value": "#F57C00" },
+    { "name": "pc_icon", "value": "#7B1FA2" },
+    { "name": "car_icon", "value": "#E64A19" },
+    { "name": "tv_icon", "value": "#0097A7" },
+    { "name": "common_bg", "value": "#F5F5F5" }
+  ]
+}

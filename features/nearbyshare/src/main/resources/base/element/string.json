@@ -1,0 +1,25 @@
+{
+  "string": [
+    { "name": "nearby_share", "value": "隔空投送" },
+    { "name": "scanning", "value": "正在搜索附近设备..." },
+    { "name": "scan_button", "value": "开始扫描" },
+    { "name": "stop_scan", "value": "停止扫描" },
+    { "name": "send_text", "value": "发送文本" },
+    { "name": "send_score", "value": "发送游戏分数" },
+    { "name": "send_rotation_log", "value": "发送旋转日志" },
+    { "name": "no_devices", "value": "未发现可用设备" },
+    { "name": "device_found", "value": "已发现以下设备" },
+    { "name": "tap_to_send", "value": "点击发送" },
+    { "name": "sending", "value": "正在发送..." },
+    { "name": "sent_success", "value": "发送成功!" },
+    { "name": "transfer_history", "value": "传输记录" },
+    { "name": "device_phone", "value": "手机" },
+    { "name": "device_tablet", "value": "平板" },
+    { "name": "device_foldable", "value": "折叠屏" },
+    { "name": "device_2in1", "value": "二合一笔记本" },
+    { "name": "device_car", "value": "车机" },
+    { "name": "device_tv", "value": "智慧屏" },
+    { "name": "nearby_title", "value": "隔空投送" },
+    { "name": "nearby_desc", "value": "演示鸿蒙设备间的内容分享能力" }
+  ]
+}

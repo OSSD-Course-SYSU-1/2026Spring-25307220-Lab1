@@ -1,0 +1,5 @@
+enable-property-obfuscation
+enable-string-property-obfuscation
+enable-toplevel-obfuscation
+compact
+remove-log

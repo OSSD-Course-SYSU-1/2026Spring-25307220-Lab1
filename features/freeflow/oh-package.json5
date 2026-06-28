@@ -1,0 +1,11 @@
+{
+  "name": "freeflow",
+  "version": "1.0.0",
+  "description": "FreeFlow feature module - demonstrates seamless task continuation across devices",
+  "main": "Index.ets",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "base": "file:../../commons/base"
+  }
+}

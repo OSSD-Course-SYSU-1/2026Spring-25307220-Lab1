@@ -1,0 +1,11 @@
+{
+  "name": "nearbyshare",
+  "version": "1.0.0",
+  "description": "NearbyShare feature module - demonstrates device-to-device content sharing",
+  "main": "Index.ets",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "base": "file:../../commons/base"
+  }
+}

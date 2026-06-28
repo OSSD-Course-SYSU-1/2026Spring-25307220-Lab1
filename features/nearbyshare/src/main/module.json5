@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "nearbyshare",
+    "type": "har",
+    "description": "NearbyShare feature module",
+    "deviceTypes": [
+      "default"
+    ],
+    "routerMap": "$profile:router_map"
+  }
+}

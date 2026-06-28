@@ -1,0 +1,17 @@
+{
+  "color": [
+    { "name": "card_bg", "value": "#FFFFFF" },
+    { "name": "state_bg", "value": "#F5F7FA" },
+    { "name": "state_border", "value": "#E0E0E0" },
+    { "name": "flow_primary", "value": "#1976D2" },
+    { "name": "flow_success", "value": "#388E3C" },
+    { "name": "flow_warning", "value": "#F57C00" },
+    { "name": "btn_continue", "value": "#1976D2" },
+    { "name": "btn_receive", "value": "#388E3C" },
+    { "name": "btn_reset", "value": "#757575" },
+    { "name": "text_primary", "value": "#212121" },
+    { "name": "text_secondary", "value": "#757575" },
+    { "name": "device_list_bg", "value": "#F5F7FA" },
+    { "name": "common_bg", "value": "#F5F5F5" }
+  ]
+}

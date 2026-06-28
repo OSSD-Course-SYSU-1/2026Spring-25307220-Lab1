@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "freeflow",
+    "type": "har",
+    "description": "FreeFlow feature module",
+    "deviceTypes": [
+      "default"
+    ],
+    "routerMap": "$profile:router_map"
+  }
+}
