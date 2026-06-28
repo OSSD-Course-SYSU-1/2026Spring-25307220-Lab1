@@ -1,191 +1,214 @@
-# 窗口方向
+# 窗口方向 — 鸿蒙多设备窗口旋转策略演示应用
+
+> HarmonyOS 6.0.2+ | DevEco Studio 6.1.0+ | API 22 | 编译通过 ✅ 0 错 0 警告
 
 ## 项目简介
 
-本示例以窗口旋转策略实现的高频场景为载体，通过窗口级配置实现多设备的窗口方向变化。示例中实现了开发中的五个典型场景：应用首页、横竖屏游戏、图库、个股详情页&股票K线图页以及视频详情页&全屏播放页。此外，还扩展了三个高级功能模块：**多窗口协作演示**（模拟多窗口环境下的布局适配）、**旋转事件录制回放**（实时录制旋转事件并提供统计分析面板）以及 **2048 数字拼图**（经典滑动拼图小游戏）。
+本示例以窗口旋转策略实现的高频场景为载体，通过窗口级配置实现多设备的窗口方向变化。项目最初包含 9 个功能模块，**我们在此基础上新增了隔空投送、自由流转两个分布式能力演示模块，并对全部页面进行了大小屏适配改造**。当前共计 **11 个功能模块**：
 
-## 效果预览
-以首页案例为例的效果图。
+- 原有 8 个：应用首页（Home）、竖屏游戏（Portrait）、横屏游戏（Landscape）、图库（Photos）、股票详情（Stock）、视频详情（Video）、多窗口协作（MultiWindow）、旋转事件日志（OrientationLog）
+- 原有 1 个（扩写）：2048 数字拼图（Game2048）
+- **我们新增 2 个**：隔空投送（NearbyShare）、自由流转（FreeFlow）
 
-| 直板机、双折叠折叠态、三折叠F态                                        | 双折叠展开态、三折叠M态、三折叠G态、平板                                    |
-|---------------------------------------------------------|----------------------------------------------------------|
-| <img src='screenshots/device/home_phone.gif' width=480> | <img src='screenshots/device/home_tablet.gif' width=480> |
+---
 
-## 功能模块一览
+## ⚠️ 首次编译必读
 
-| 模块 | 入口名称 | 窗口策略 | 说明 |
-|------|---------|---------|------|
-| Home | 应用首页 | FOLLOW_DESKTOP | 首页 Tabs + 瀑布流，响应式布局自适应 |
-| PortraitModeGame | 竖屏游戏 | FIXED PORTRAIT | 锁定竖屏，触控游戏 |
-| LandscapeModeGame | 横屏游戏 | FIXED LANDSCAPE | 锁定横屏，触控游戏 |
-| Photos | 图库 | AUTO_ROTATION_UNSPECIFIED | 自动旋转，分栏布局切换 |
-| StockDetail | 股票详情页 | FOLLOW_DESKTOP | 跟随桌面，K 线自适应 |
-| VideoDetail | 视频详情页 | AUTO_ROTATION_LANDSCAPE_RESTRICTED | 动态选择，全屏/窗口策略切换 |
-| **MultiWindowDemo** 🆕 | **多窗口旋转协作** | 动态演示 | 模拟多窗口布局适配，集成事件录制 |
-| **OrientationLog** 🆕 | **旋转事件日志** | — | 实时录制 + 统计面板 + 条形图 + 时间轴 |
-| **Game2048** 🆕 | **2048 数字拼图** | — | 滑动操作 + 方向按钮，经典 2048 玩法 |
+### 1. 安装 ohpm 依赖
 
-## 使用说明
+在 DevEco Studio 中打开项目后，点击 **Sync** 或菜单栏 `Build → Build Hap(s)` 触发 ohpm install。首次 `products/default/oh_modules/` 为空是正常的，Sync 后自动生成。
 
-1. 通过Navigation组件，配置应用的路由信息。
-2. 通过点击主页List的ListItem跳转进入对应的高频场景案例中。
-3. 在高频场景案例的主页aboutToAppear()生命周期中设置窗口级的窗口旋转策略，并在退出当前页面时恢复上一页面的窗口策略。
-4. 对于不同场景及不同设备形态切换做监听，更新符合用户体验的窗口旋转策略。
-5. 新增的 **旋转事件日志** 模块可在任意页面手动或自动录制旋转事件，切换至该页面查看时序统计与分析。
-6. 新增的 **2048 数字拼图** 支持手指滑动、底部方向按钮两种操作方式，最高分通过 Preferences 持久化存储。
+### 2. 确保入口模块未被 gitignore 屏蔽
 
-## 工程目录
+旧版 `.gitignore` 中 `/products/` 会阻止入口模块提交，**已修复**。当前版本只忽略 `/products/build/`。
 
-```
+### 3. 所有 HAR 模块必须声明 deviceTypes
 
-├──commons                                  // 公共常量及工具
-│  └──base/src/main/ets
-│     ├──constants
-│     │  ├──BreakpointConstants.ets         // 断点常量
-│     │  └──CommonConstants.ets             // 通用常量
-│     └──utils
-│        ├──BreakpointType.ets              // 断点类型工具类
-│        ├──Logger.ets                      // 日志工具
-│        ├──OrientationLogger.ets           // 旋转事件录制器 🆕
-│        └──WindowOrientationHelper.ets     // 窗口方向辅助工具
-├──features                                 // 程序har包
-│  ├──home/src/main/ets                     // 首页案例代码区
-│  │  ├──model 
-│  │  │  └──TabBarModel.ets                 // 底部导航条数据模型
-│  │  ├──viewmodel 
-│  │  │  ├──TabBarViewModel.ets             // 底部导航条视图模型
-│  │  │  └──WaterFlowDataSource.ets         // 瀑布流视图模型
-│  │  └──views 
-│  │     └──Home.ets                        // 首页案例主页
-│  ├──landscapeModeGame/src/main/ets        // 横屏游戏代码区
-│  │  └──views 
-│  │     └──LandscapeModeGame.ets           // 横屏游戏主页
-│  ├──photos/src/main/ets                   // 图库代码区
-│  │  ├──model 
-│  │  │  └──PhotsTabBarModel.ets            // 图库底部导航条数据模型
-│  │  ├──viewmodel 
-│  │  │  ├──ListDataSource.ets              // 图库列表视图模型
-│  │  │  └──PhotoTabBarViewModel.ets        // 图库底部导航条视图模型
-│  │  └──views 
-│  │     └──Photos.ets                      // 图库主页
-│  ├──portraitModeGame/src/main/ets         // 竖屏游戏代码区
-│  │  ├──constants 
-│  │  │  └──PortraitConstants.ets           // 竖屏游戏常量
-│  │  └──views 
-│  │     └──PortraitModeGame.ets            // 竖屏游戏主页
-│  ├──stockDetail/src/main/ets              // 个股详情页&股票K线图
-│  │  ├──chartmodels 
-│  │  │  ├──BarChartView.ets                // 股票图表
-│  │  │  ├──ChartAxisFormatter.ets          // 图标数据格式化
-│  │  │  └──LineChartModel.ets              // 图标数据模型
-│  │  ├──model 
-│  │  │  └──DataModel.ets                   // 股票数据模型
-│  │  └──views 
-│  │     ├──ABAWindow.ets                   // 股票K线页
-│  │     ├──CommonViews.ets                 // 通用视图页
-│  │     ├──StockDealDetails.ets            // 个股交易信息页
-│  │     ├──StockDetail.ets                 // 个股详情主页
-│  │     └──StockDetailsInfo.ets            // 个股详情信息页
-│  ├──videoDetail/src/main/ets              // 视频详情页&全屏播放页
-│  │  ├──components 
-│  │  │  ├──AllComments.ets                 // 所有基础组件汇总
-│  │  │  ├──RelatedList.ets                 // 相关信息列表组件
-│  │  │  └──VideoPlayer.ets                 // 播放器组件
-│  │  ├──viewmodel 
-│  │  │  ├──RelatedVideoViewModel.ets       // 相关视频视图模型
-│  │  │  └──UserViewModel.ets               // 用户信息视图模型
-│  │  └──views 
-│  │     ├──VideoDetail.ets                 // 视频详情页
-│  │     └──VideoDetailView.ets             // 全屏播放页
-│  ├──multiwindow/src/main/ets 🆕           // 多窗口协作演示
-│  │  └──views
-│  │     └──MultiWindowDemo.ets             // 多窗口模拟 + 旋转策略演示
-│  ├──orientationlog/src/main/ets 🆕        // 旋转事件录制回放
-│  │  ├──model
-│  │  │  └──RotationEventModel.ets          // 旋转事件数据模型
-│  │  └──views
-│  │     └──OrientationLog.ets              // 日志主页（时间轴 + 统计分析）
-│  └──game2048/src/main/ets 🆕              // 2048 数字拼图
-│     └──views
-│        └──Game2048.ets                    // 游戏主页（滑动 + 按钮操控）
-└──products                                 // 设备分类
-   ├──default/src/main/ets                  // 主页代码区
-   │  ├──defaultbackupability 
-   │  │  └──DefaultBackupAbility.ets        // 数据备份与恢复扩展能力
-   │  ├──entryability 
-   │  │  └──EntryAbility.ets                // 程序入口
-   │  ├──model 
-   │  │  └──CardListModel.ets               // 主页列表数据模型
-   │  ├──pages 
-   │  │  └──Index.ets                       // 主页
-   │  └──viewmodel 
-   │     └──CardListViewModel.ets           // 主页列表试图模型（含 9 个功能入口）
-   └──default/src/main/resources   
-      └──base/profile    
-         ├──backup_config.json              // 应用数据备份配置文件
-         └──main_pages.json                 // 窗口方向配置文件
+每个 `features/*/src/main/module.json5` 必须包含 `"deviceTypes": ["default"]`，否则编译报错 `00303194 Configuration Error`。
+
+---
+
+## 功能模块总览
+
+| 模块 | 入口名称 | 窗口策略 | 断点适配 | 说明 |
+|------|---------|---------|:---:|------|
+| Home | 应用首页 | FOLLOW_DESKTOP | ✅ | 首页 Tabs + 瀑布流，侧边栏/底部导航自适应 |
+| PortraitModeGame | 竖屏游戏 | FIXED PORTRAIT | ✅ **改造** | 锁定竖屏；列数 4~12 随断点变化 |
+| LandscapeModeGame | 横屏游戏 | FIXED LANDSCAPE | ✅ **改造** | 锁定横屏；圆形尺寸+间距随断点缩放 |
+| Photos | 图库 | AUTO_ROTATION | ✅ **改造** | lanes 2~6 列随断点动态切换 |
+| StockDetail | 股票详情 | FOLLOW_DESKTOP | ✅ 原有 | 图表高度+边距 BreakpointType 自适应 |
+| VideoDetail | 视频详情 | AUTO/LANDSCAPE_RESTRICTED | ✅ 原有 | GridRow + 全屏检测 + 折叠屏适配 |
+| MultiWindowDemo | 多窗口协作 | FOLLOW_DESKTOP | ✅ 原有 | 模拟多窗口 + 实时录制旋转事件 |
+| OrientationLog | 旋转事件日志 | — | ✅ **改造** | 时间轴 + 统计面板；Label 宽度响应式 |
+| Game2048 | 2048 拼图 | FOLLOW_DESKTOP | ✅ **改造** | 棋盘缩放；大屏时棋盘+按钮左右并排 |
+| **NearbyShare** 🆕 | **隔空投送** | FOLLOW_DESKTOP | ✅ | **我们新增**，设备发现+内容选择+传输+历史记录 |
+| **FreeFlow** 🆕 | **自由流转** | FOLLOW_DESKTOP | ✅ | **我们新增**，状态快照+流转模拟+AppStorage 共享 |
+
+---
+
+## 核心功能详解（我们新增/改造）
+
+### 隔空投送（NearbyShare）— 我们新增 🆕
+
+模拟鸿蒙设备间的内容发现与传输：
+
+- **设备发现**：雷达扫描动画 + 6 种模拟设备（手机/平板/折叠屏/笔记本/车机/智慧屏），分阶段逐条发现
+- **真实 API 预留**：`DeviceDiscoveryManager` 通过 `canIUse()` 检测分布式能力，真机可用时自动切换到 `distributedDeviceManager`（当前模拟器走模拟降级路径）
+- **内容选择**：底部 Sheet — 文本消息（可编辑）、游戏最高分、旋转事件日志
+- **传输过程**：进度条 + 速度指示 + 成功面板动画
+- **传输历史**：设备名、内容类型、文件大小、耗时、成功/失败状态
+- **大屏适配**：LG+ 断点下设备列表与历史面板左右并排
+
+### 自由流转（FreeFlow）— 我们新增 🆕
+
+模拟鸿蒙设备间的无缝任务接续：
+
+- **状态管理**：文本内容 + 计数器 + 滚动位置，使用 `FlowState` class + `FlowState.copy()` 模式
+- **快照系统**：保存/加载/删除当前应用状态快照
+- **流转模拟**：选择目标设备 → 流转动画 → 完成确认；接收流转（模拟从其他设备恢复状态）
+- **真实接续预留**：`EntryAbility` 已实现 `onContinue()`（序列化 → `wantParam`）和 `onCreate()`（恢复 → `AppStorage`），`module.json5` 已配置 `"continuable": true`。真机上系统自动接管设备选择 UI
+- **大屏适配**：LG+ 断点下状态面板与控制区左右并排
+
+### 适应大小屏 — 我们改造 ✅
+
+我们在原有项目基础上对以下模块进行了响应式布局改造：
+
+| 模块 | 改造前 | 改造后 |
+|------|--------|--------|
+| Game2048 | 棋盘固定 72vp | `cellSize()` 随断点 56~94vp；LG+ 时棋盘+按钮左右并排 |
+| PortraitModeGame | 固定 8 列 | 列数 4/6/8/10/12 随断点动态切换 |
+| LandscapeModeGame | 圆形固定 128vp | 72~180vp 随断点缩放；间距+padding 同步适配 |
+| Home | padding 固定 16px | `BreakpointType(12,16,24,32,32)` |
+| Photos | lanes 固定 (4,2) | `BreakpointType(2,3,4,5,6)` 动态列数 |
+| OrientationLog | label 固定 120vp | `BreakpointType(80,100,140,160,180)` |
+
+### 窗口旋转策略工具（WindowOrientationHelper）
+
+19 种策略枚举 + 三层决策模型（固定/自动/跟随桌面）+ 元数据查询 + 链式调用。所有页面进入时设置策略，退出时恢复 `FIXED.UNSPECIFIED`（锁定当前方向）。
+
+---
+
+## 工程目录（完整）
 
 ```
+WindowOrientation-master/
+├── .gitignore                     # 已修复：/products/ 不再忽略
+├── build-profile.json5            # 根构建配置，注册 12 个模块
+├── README.md                      # 本文件
+├── docs/DEV_NOTES.md              # 从 6 轮 ERROR_REPORT 沉淀的 10 条避坑规则
+│
+├── commons/base/                  # 公共工具库（HAR）
+│   └── src/main/ets/
+│       ├── constants/             # BreakpointConstants, CommonConstants, DetailConstants
+│       └── utils/                 # BreakpointType, Logger, WindowOrientationHelper,
+│                                  #   OrientationLogger, AvPlayerUtil, DeviceScreen, DisplayUtil
+│
+├── features/                      # 11 个功能 HAR 模块
+│   ├── home/                      # 应用首页
+│   ├── portrait/                  # 竖屏游戏
+│   ├── landscape/                 # 横屏游戏
+│   ├── photos/                    # 图库
+│   ├── stock/                     # 股票详情 (含 @ohos/mpchart 图表)
+│   ├── video/                     # 视频详情 + 全屏播放
+│   ├── multiwindow/               # 多窗口协作
+│   ├── orientationlog/            # 旋转事件日志
+│   ├── game2048/                  # 2048 数字拼图
+│   ├── nearbyshare/    🆕         # 隔空投送（我们新增）
+│   └── freeflow/       🆕         # 自由流转（我们新增）
+│
+└── products/default/              # 入口模块（HAP）
+    └── src/main/
+        ├── module.json5           # EntryAbility + INTERNET + DISTRIBUTED_DATASYNC 权限
+        ├── ets/
+        │   ├── entryability/      # EntryAbility (断点初始化 + onContinue/onCreate)
+        │   ├── pages/             # Index.ets (11 张卡片入口 + NavPathStack 导航)
+        │   ├── model/             # CardListModel
+        │   └── viewmodel/         # CardListViewModel (11 个功能入口)
+        └── resources/base/profile/
+            ├── main_pages.json
+            └── backup_config.json
+```
 
-## 新增功能详解 🆕
-
-### 1. 多窗口协作演示（MultiWindowDemo）
-
-模拟多窗口环境，展示不同窗口的布局策略与方向适配能力：
-
-- 使用 `window.Window` API 获取窗口信息
-- 集成 `OrientationLogger` 实时录制旋转事件
-- 模拟多种窗口布局策略（横竖屏、分栏、悬浮窗）
-- 展示断点变化与方向切换的关系
-
-### 2. 旋转事件录制回放（OrientationLog）
-
-提供旋转事件的实时录制、统计分析及数据持久化：
-
-- **时间轴视图** — 按时间线展示每次旋转事件（方向变化、触发原因、策略标签）
-- **统计面板** — 事件总数、录制时长、方向切换次数
-- **条形图分布** — 策略触发次数的可视化分析
-- **触发原因分布** — windowSizeChange / fullScreenToggle / manualSet 等分类统计
-- **数据持久化** — 基于 Preferences 存储，支持刷新和清空
-
-### 3. 2048 数字拼图（Game2048）
-
-经典 4×4 数字滑动拼图游戏：
-
-- **三种操作方式** — 手指滑动 / 底部方向按钮 / 键盘方向键
-- **得分系统** — 实时分数 + 最高分持久化（Preferences）
-- **胜利检测** — 合成 2048 后弹出胜利提示，可选择继续挑战
-- **游戏结束检测** — 无可用移动时弹出重试按钮
-- **动态配色** — 不同数值对应专属背景色与字号
-
-## 具体实现
-
-1. 通过homePage及relatedPage字段，配置应用的主页及关联页。
-2. 通过fullScreenPages属性指定全屏页，配置后，对应页面展示时，将暂时退出分栏模式，切换为全屏显示。
-3. 将supportLandscapeFullScreen属性设置为true，配置后，当应用请求横屏时，将退出分栏模式，切换为全屏显示。
-4. 将enableReducedContainerSize属性设置为true，开启虚拟容器能力。开启后，页面中横向断点将使用原始尺寸的缩小比例，默认按照真实大小的一半计算。
-5. 新增的 **旋转事件录制回放** 模块通过 `OrientationLogger` 单例实现全局旋转事件采集，使用 `@State` + `ForEach` 驱动时间轴和条形图的响应式更新。
-6. 新增的 **2048 数字拼图** 通过 `@State tick` 计数器配合 `ForEach` 的 key 机制实现网格状态刷新，滑动操作通过 `PanGesture` 识别方向。
+---
 
 ## 技术栈
 
 | 技术点 | 说明 |
 |-------|------|
-| 架构 | 多 HAP + HAR 模块化架构 |
+| 架构 | 1 HAP（Entry）+ 1 HAR（commons）+ 11 HAR（features） |
 | 路由 | Navigation + NavPathStack + HAR router_map |
-| 响应式 | BreakpointType + WidthBreakpoint / HeightBreakpoint |
-| 状态管理 | @State、@StorageLink、@Provide/@Consume |
-| 数据持久化 | Preferences（旋转日志、2048 最高分） |
+| 响应式 | BreakpointType\<T\>（XS/SM/MD/LG/XL 五级断点）|
+| 状态管理 | @State, @StorageLink, @Provide/@Consume, AppStorage |
+| 数据持久化 | Preferences（旋转日志、2048 最高分、流转快照） |
 | 窗口管理 | window.Window API（setPreferredOrientation） |
+| 分布式能力 | DeviceDiscoveryManager（canIUse 检测 + 模拟降级）；EntryAbility onContinue/onCreate（流转） |
 | 手势处理 | PanGesture 滑动识别 |
+| 图表 | @ohos/mpchart（股票 K 线图） |
 
-## 相关权限
+---
 
-不涉及
+## 编译与运行
+
+### 环境要求
+
+| 项目 | 版本 |
+|------|------|
+| HarmonyOS SDK | 6.1.0 Release (API 23, 兼容 6.0.2/API 22) |
+| DevEco Studio | 6.1.0 Release+ |
+| 设备类型 | 手机、折叠屏、平板、2in1 |
+
+### 首次编译
+
+1. 打开 DevEco Studio → Open Project → 选择本目录
+2. 等待 IDE 自动 Sync（安装 ohpm 依赖到 `products/default/oh_modules/`）
+3. `Build → Build Hap(s)` 或 Ctrl+F9
+4. 选择模拟器/Previewer 运行
+
+### 常见编译错误
+
+| 错误码 | 现象 | 解决 |
+|--------|------|------|
+| `00303149` | Path not found: products/default | `.gitignore` 中 `/products/` 不能忽略 |
+| `00303194` | Unable to obtain deviceTypes | HAR 模块 `module.json5` 加 `"deviceTypes": ["default"]` |
+| `00305015` | Unexpected token (动态 import) | ArkTS 不支持 `import()` 表达式，用静态 import |
+| `10605099` | arkts-no-spread | 禁止 `...obj` 展开；状态对象用 class + 逐字段赋值 |
+| `10605144` | arkts-limited-stdlib | `Object.assign` 也被禁止 |
+| `10903329` | Unknown resource name (sys.symbol) | HAR 模块不认 `$r('sys.symbol.xxx')`，改用 Unicode 或自定义图标 |
+| `10505001` | layoutWeight on Builder | `@Builder` 返回不能 `.layoutWeight()`，用 Column/Row 包裹 |
+
+---
+
+## 权限声明
+
+| 权限 | 用途 | 状态 |
+|------|------|:--:|
+| `ohos.permission.INTERNET` | 网络访问 | ✅ 已声明 |
+| `ohos.permission.DISTRIBUTED_DATASYNC` | 分布式数据同步 + 设备发现 | ✅ 已声明 |
+| `ohos.permission.GET_BLUETOOTH_PEERS_MAC` | 蓝牙设备发现（NearbyShare 真实 API 需要） | ⚠️ 真机时补充 |
+
+---
+
+## ⚠️ 注意事项（10 条实战经验）
+
+> 以下规则从本项目 6 轮 DevEco Studio 错误报告中沉淀，详见 `docs/DEV_NOTES.md`。
+
+1. **`.gitignore` 不能屏蔽 `/products/`** — 入口模块是编译入口，屏蔽将导致 `00303149` 错误
+2. **HAR 模块必须声明 `deviceTypes`** — 每个 `module.json5` 都要 `"deviceTypes": ["default"]`
+3. **首次打开必须 IDE Sync** — `oh_modules` 不会自动生成，需手动触发
+4. **`$r('sys.symbol.xxx')` 在 HAR 模块不可用** — 改用 Unicode emoji 或自定义图标资源
+5. **ArkTS 严格模式禁止 spread 和 Object.assign** — 状态对象用 `class` + 静态 `copy()` 方法
+6. **动态 `import()` 不支持** — 用静态 `import`，运行时 `canIUse()` 检测
+7. **`@Builder` 返回值不能 `.layoutWeight()`** — 在 Builder 内层或包裹的 Column/Row 上设置
+8. **Entry 模块用 `"pages"`，HAR 模块用 `"routerMap"`** — 字段名不同，混用导致路由失效
+9. **断点系统必须在 `EntryAbility.onWindowStageCreate` 中初始化** — `windowSizeChange` 事件监听
+10. **分布式 API 必须 `canIUse()` 运行时检测 + 模拟降级** — 模拟器/Previewer 不支持分布式能力
+
+---
 
 ## 约束与限制
 
-1. 本示例仅支持在标准系统上运行，支持设备：直板机、双折叠、三折叠、平板。
-2. HarmonyOS系统：HarmonyOS 6.1.0 Release及以上。
-3. DevEco Studio版本：DevEco Studio 6.1.0 Release及以上。
-4. HarmonyOS SDK版本：HarmonyOS 6.1.0 Release SDK及以上。
+1. 支持设备：直板机、双折叠、三折叠、平板、2in1
+2. HarmonyOS: 6.1.0 Release+
+3. DevEco Studio: 6.1.0 Release+
+4. 隔空投送与自由流转的**真实分布式 API** 需在真机上验证（模拟器使用模拟降级路径）
+5. `@ohos/mpchart` 图表库仅在 stock 模块使用，为第三方依赖
