@@ -1,0 +1,32 @@
+{
+  "color": [
+    {
+      "name": "block_color_one",
+      "value": "#FF9C5EE3"
+    },
+    {
+      "name": "block_color_two",
+      "value": "#FFC0E04B"
+    },
+    {
+      "name": "block_color_three",
+      "value": "#FFCBB35B"
+    },
+    {
+      "name": "border_color",
+      "value": "#ff78a0cd"
+    },
+    {
+      "name": "portrait_bg",
+      "value": "#FF323D4A"
+    },
+    {
+      "name": "common_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "title_font_color",
+      "value": "#606162"
+    }
+  ]
+}

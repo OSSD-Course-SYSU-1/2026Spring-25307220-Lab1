@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "multi_window_demo",
+      "value": "多窗口旋转协作"
+    },
+    {
+      "name": "window_a",
+      "value": "窗口A - 固定竖屏"
+    },
+    {
+      "name": "window_b",
+      "value": "窗口B - 跟随桌面"
+    },
+    {
+      "name": "window_c",
+      "value": "窗口C - 自动旋转"
+    },
+    {
+      "name": "strategy_label",
+      "value": "策略"
+    },
+    {
+      "name": "orientation_label",
+      "value": "当前方向"
+    },
+    {
+      "name": "main_window",
+      "value": "主窗口"
+    },
+    {
+      "name": "status_active",
+      "value": "活跃"
+    },
+    {
+      "name": "status_inactive",
+      "value": "非活跃"
+    },
+    {
+      "name": "multi_window_desc",
+      "value": "多窗口独立旋转策略演示"
+    }
+  ]
+}

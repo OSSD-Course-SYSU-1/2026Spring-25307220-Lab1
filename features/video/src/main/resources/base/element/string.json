@@ -1,0 +1,45 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "comments",
+      "value": "全部评论"
+    },
+    {
+      "name": "introduction",
+      "value": "视频简介"
+    },
+    {
+      "name": "product",
+      "value": "北京时间3月23日，华为春季旗舰新品发布会，我们不见不散。"
+    },
+    {
+      "name": "play",
+      "value": "23.4万次播放··华为终端·华为资讯·2023·中国大陆"
+    },
+    {
+      "name": "anthology",
+      "value": "选集"
+    },
+    {
+      "name": "Peripheral",
+      "value": "周边视频"
+    },
+    {
+      "name": "more",
+      "value": "更多"
+    },
+    {
+      "name": "selections",
+      "value": "选集"
+    },
+    {
+      "name": "super",
+      "value": "超清"
+    }
+
+  ]
+}

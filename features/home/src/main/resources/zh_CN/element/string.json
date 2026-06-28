@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "main",
+      "value": "首页"
+    },
+    {
+      "name": "hot",
+      "value": "热门"
+    },
+    {
+      "name": "message",
+      "value": "信息"
+    },
+    {
+      "name": "mine",
+      "value": "我"
+    },
+    {
+      "name": "homepage",
+      "value": "应用首页"
+    },
+    {
+      "name": "mode_list",
+      "value": "模式列表"
+    }
+  ]
+}

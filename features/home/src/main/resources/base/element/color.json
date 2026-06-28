@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "water_flow_background_color",
+      "value": "#FFAFB0B1"
+    },
+    {
+      "name": "tab_normal_color",
+      "value": "#7F7F7F"
+    },
+    {
+      "name": "tab_select_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "common_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "list_item_card_shadow",
+      "value": "#ffbab3b3"
+    }
+  ]
+}
