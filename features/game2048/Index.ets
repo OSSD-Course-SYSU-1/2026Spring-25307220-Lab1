@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Game2048 } from './src/main/ets/views/Game2048';
+export { Game2048, Game2048Builder } from './src/main/ets/views/Game2048';

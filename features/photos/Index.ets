@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Photos } from './src/main/ets/views/Photos';
+export { Photos, PhotosBuilder } from './src/main/ets/views/Photos';

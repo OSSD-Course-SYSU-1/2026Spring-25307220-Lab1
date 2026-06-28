@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { Home } from './src/main/ets/views/Home';
+export { Home, HomeBuilder } from './src/main/ets/views/Home';

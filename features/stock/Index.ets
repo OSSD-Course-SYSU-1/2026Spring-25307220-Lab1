@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-export { StockDetail } from './src/main/ets/views/StockDetail';
+export { StockDetail, StockDetailBuilder } from './src/main/ets/views/StockDetail';
 

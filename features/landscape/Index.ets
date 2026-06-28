@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { LandscapeModeGame } from './src/main/ets/views/LandscapeModeGame';
+export { LandscapeModeGame, LandscapeModeGameBuilder } from './src/main/ets/views/LandscapeModeGame';

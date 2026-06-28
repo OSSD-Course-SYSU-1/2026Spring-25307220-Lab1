@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { MultiWindowDemo } from './src/main/ets/views/MultiWindowDemo';
+export { MultiWindowDemo, MultiWindowDemoBuilder } from './src/main/ets/views/MultiWindowDemo';

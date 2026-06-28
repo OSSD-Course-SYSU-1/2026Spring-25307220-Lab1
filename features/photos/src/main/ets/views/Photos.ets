@@ -18,7 +18,7 @@ import { window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 import { PhotosBarViewModel } from '../viewmodel/PhotoTabBarViewModel';
 import { PhotosBarItemInterface } from '../model/PhotsTabBarModel';
-import { CommonConstants, Logger, WindowOrientationHelper } from 'base';
+import { BreakpointType, CommonConstants, Logger, WindowOrientationHelper } from 'base';
 
 @Builder
 export function PhotosBuilder() {
@@ -93,7 +93,7 @@ export struct Photos {
                   }
                 }, (item: number) => item.toString())
               }
-              .lanes(4, 2)
+              .lanes(new BreakpointType(2, 3, 4, 5, 6).getValue(this.widthBp))
               .width(CommonConstants.FULL_PERCENT)
               .height(CommonConstants.FULL_PERCENT)
               .scrollBar(BarState.Off)

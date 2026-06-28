@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { PortraitModeGame } from './src/main/ets/views/PortraitModeGame';
+export { PortraitModeGame, PortraitModeGameBuilder } from './src/main/ets/views/PortraitModeGame';

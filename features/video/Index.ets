@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { VideoDetail } from './src/main/ets/views/VideoDetail';
+export { VideoDetail, VideoDetailBuilder } from './src/main/ets/views/VideoDetail';

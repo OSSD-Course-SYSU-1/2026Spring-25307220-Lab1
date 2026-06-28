@@ -15,7 +15,7 @@
 
 import { window } from "@kit.ArkUI";
 import { common } from "@kit.AbilityKit";
-import { CommonConstants, Logger, WindowOrientationHelper } from "base";
+import { BreakpointType, CommonConstants, Logger, WindowOrientationHelper } from "base";
 
 @Builder
 export function LandscapeModeGameBuilder() {
@@ -25,6 +25,7 @@ export function LandscapeModeGameBuilder() {
 @Component
 export struct LandscapeModeGame {
   windowObj: window.Window | undefined = undefined;
+  @StorageLink(CommonConstants.WIDTH_BREAK_POINT) widthBp: WidthBreakpoint = WidthBreakpoint.WIDTH_SM;
 
   aboutToAppear(): void {
     try {
@@ -47,15 +48,15 @@ export struct LandscapeModeGame {
 
   build() {
     NavDestination() {
-      Row({ space: 10 }) {
+      Row({ space: new BreakpointType(8, 10, 16, 24, 32).getValue(this.widthBp) }) {
         Row()
-          .width(128)
+          .width(new BreakpointType(72, 100, 128, 160, 180).getValue(this.widthBp))
           .aspectRatio(1)
           .borderRadius('50%')
           .backgroundColor($r('app.color.common_background_color'))
 
         Row()
-          .width(128)
+          .width(new BreakpointType(72, 100, 128, 160, 180).getValue(this.widthBp))
           .aspectRatio(1)
           .borderRadius('50%')
           .backgroundColor($r('app.color.common_background_color'))
@@ -63,8 +64,8 @@ export struct LandscapeModeGame {
       .height(CommonConstants.FULL_PERCENT)
       .width(CommonConstants.FULL_PERCENT)
       .padding({
-        left: 90,
-        right: 90,
+        left: new BreakpointType(24, 48, 72, 90, 110).getValue(this.widthBp),
+        right: new BreakpointType(24, 48, 72, 90, 110).getValue(this.widthBp),
         bottom: 24,
       })
       .justifyContent(FlexAlign.SpaceBetween)

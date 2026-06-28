@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { CommonConstants, Logger, WindowOrientationHelper } from "base";
+import { BreakpointType, CommonConstants, Logger, WindowOrientationHelper } from "base";
 import { BarItemInterface, TabBarsInfo } from "../model/TabBarModel";
 import { TabBarViewModel } from "../viewmodel/TabBarViewModel";
 import { WaterFlowDataSource } from "../viewmodel/WaterFlowDataSource";
@@ -159,14 +159,38 @@ export struct Home {
           .tabBar(this.TabBarBuilder(this.tabBarsInfo.getTabList()[0], 0))
 
           TabContent() {
+            Column() {
+              Text($r('app.string.page_show'))
+                .fontSize(16)
+                .fontColor($r('sys.color.font_secondary'))
+            }
+            .width(CommonConstants.FULL_PERCENT)
+            .height(CommonConstants.FULL_PERCENT)
+            .justifyContent(FlexAlign.Center)
           }
           .tabBar(this.TabBarBuilder(this.tabBarsInfo.getTabList()[1], 1))
 
           TabContent() {
+            Column() {
+              Text($r('app.string.page_show'))
+                .fontSize(16)
+                .fontColor($r('sys.color.font_secondary'))
+            }
+            .width(CommonConstants.FULL_PERCENT)
+            .height(CommonConstants.FULL_PERCENT)
+            .justifyContent(FlexAlign.Center)
           }
           .tabBar(this.TabBarBuilder(this.tabBarsInfo.getTabList()[2], 2))
 
           TabContent() {
+            Column() {
+              Text($r('app.string.page_show'))
+                .fontSize(16)
+                .fontColor($r('sys.color.font_secondary'))
+            }
+            .width(CommonConstants.FULL_PERCENT)
+            .height(CommonConstants.FULL_PERCENT)
+            .justifyContent(FlexAlign.Center)
           }
           .tabBar(this.TabBarBuilder(this.tabBarsInfo.getTabList()[3], 3))
         }
@@ -185,8 +209,8 @@ export struct Home {
       }
       .width(CommonConstants.FULL_PERCENT)
       .padding({
-        left: 16,
-        right: 16,
+        left: new BreakpointType(12, 16, 24, 32, 32).getValue(this.widthBp),
+        right: new BreakpointType(12, 16, 24, 32, 32).getValue(this.widthBp),
         top: 8
       })
     }

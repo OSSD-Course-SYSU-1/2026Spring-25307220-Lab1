@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-export { OrientationLog } from './src/main/ets/views/OrientationLog';
+export { OrientationLog, OrientationLogBuilder } from './src/main/ets/views/OrientationLog';

@@ -15,7 +15,7 @@
 
 import { window } from "@kit.ArkUI";
 import { common } from "@kit.AbilityKit";
-import { CommonConstants, Logger, WindowOrientationHelper } from "base";
+import { BreakpointType, CommonConstants, Logger, WindowOrientationHelper } from "base";
 import { PortraitConstants } from "../constants/PortraitConstants";
 
 @Builder
@@ -103,7 +103,7 @@ export struct PortraitModeGame {
         }
         .width(CommonConstants.FULL_PERCENT)
         .height("auto")
-        .lanes(8)
+        .lanes(new BreakpointType(4, 6, 8, 10, 12).getValue(this.widthBp))
         .border({ width: { top: 1, left: 1 }, color: $r('app.color.border_color') })
         .scrollBar(BarState.Off)
         .backgroundColor($r('app.color.portrait_bg'))
@@ -111,8 +111,8 @@ export struct PortraitModeGame {
       .height(CommonConstants.FULL_PERCENT)
       .width(CommonConstants.FULL_PERCENT)
       .padding({
-        left: 16,
-        right: 16,
+        left: new BreakpointType(12, 16, 24, 32, 32).getValue(this.widthBp),
+        right: new BreakpointType(12, 16, 24, 32, 32).getValue(this.widthBp),
         top: 28
       })
     }
