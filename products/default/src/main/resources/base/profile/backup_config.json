@@ -1,0 +1,11 @@
+{
+  "allowToBackupRestore": true,
+  "includes": [
+    "data/storage/el2/base/files/user_preferences"
+  ],
+  "excludes": [
+    "cache/"
+  ],
+  "fullBackupOnly": false,
+  "restoreDeps": ""
+}

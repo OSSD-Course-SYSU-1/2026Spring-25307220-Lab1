@@ -77,6 +77,14 @@
     {
       "name": "game2048",
       "srcPath": "./features/game2048"
+    },
+    {
+      "name": "nearbyshare",
+      "srcPath": "./features/nearbyshare"
+    },
+    {
+      "name": "freeflow",
+      "srcPath": "./features/freeflow"
     }
   ]
 }

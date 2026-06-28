@@ -1,0 +1,23 @@
+{
+  "name": "default",
+  "version": "1.0.0",
+  "description": "WindowOrientation entry module - multi-device window rotation strategy demo",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "base": "file:../../commons/base",
+    "home": "file:../../features/home",
+    "portrait": "file:../../features/portrait",
+    "landscape": "file:../../features/landscape",
+    "photos": "file:../../features/photos",
+    "stock": "file:../../features/stock",
+    "video": "file:../../features/video",
+    "game2048": "file:../../features/game2048",
+    "multiwindow": "file:../../features/multiwindow",
+    "orientationlog": "file:../../features/orientationlog",
+    "nearbyshare": "file:../../features/nearbyshare",
+    "freeflow": "file:../../features/freeflow"
+  },
+  "devDependencies": {}
+}

@@ -1,5 +1,6 @@
 # 鸿蒙构建/缓存文件（必须忽略！）
-/products/
+# /products/ 不能忽略——这是入口模块所在目录，忽略将导致编译失败
+/products/build/
 /build/
 /.hvigor/
 /.arkts-cache/
@@ -22,3 +23,7 @@
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# 不参与项目的文件
+sorting.py
+*.mp4

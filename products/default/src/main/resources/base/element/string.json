@@ -1,0 +1,20 @@
+{
+  "string": [
+    { "name": "EntryAbility_desc", "value": "窗口旋转策略演示应用" },
+    { "name": "EntryAbility_label", "value": "WindowOrientation" },
+    { "name": "app_title", "value": "窗口方向" },
+    { "name": "app_subtitle", "value": "多设备窗口旋转策略演示 — 包含 11 个功能模块" },
+    { "name": "card_home", "value": "应用首页" },
+    { "name": "card_portrait", "value": "竖屏游戏" },
+    { "name": "card_landscape", "value": "横屏游戏" },
+    { "name": "card_photos", "value": "图库" },
+    { "name": "card_stock", "value": "股票详情" },
+    { "name": "card_video", "value": "视频详情" },
+    { "name": "card_multiwindow", "value": "多窗口协作" },
+    { "name": "card_orientationlog", "value": "旋转事件日志" },
+    { "name": "card_game2048", "value": "2048 拼图" },
+    { "name": "card_nearby", "value": "隔空投送" },
+    { "name": "card_freeflow", "value": "自由流转" },
+    { "name": "distributed_permission_reason", "value": "用于发现附近设备并实现隔空投送功能" }
+  ]
+}
